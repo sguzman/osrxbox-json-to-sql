@@ -89,39 +89,86 @@ class Item:
                 weapon: Optional[Weapons]
                  ):
         self.idd = idd
-        self.name = name,
-        self.incomplete = incomplete,
-        self.members = members,
-        self.tradeable = tradeable,
-        self.tradeable_on_ge = tradeable_on_ge,
-        self.stackable = stackable,
-        self.stacked = stacked,
-        self.noted = noted,
-        self.noteable = noteable,
-        self.linked_id_item = linked_id_item,
-        self.linked_id_noted = linked_id_noted,
-        self.linked_id_placeholder = linked_id_placeholder,
-        self.placeholder = placeholder,
-        self.equipable = equipable,
-        self.equipable_by_player = equipable_by_player,
-        self.equipable_weapon = equipable_weapon,
-        self.cost = cost,
-        self.lowalch = lowalch,
-        self.highalch = highalch,
-        self.weight = weight,
-        self.buy_limit = buy_limit,
-        self.quest_item = quest_item,
-        self.release_date = release_date,
-        self.duplicate = duplicate,
-        self.examine = examine,
-        self.icon = icon,
-        self.wiki_name = wiki_name,
-        self.wiki_url = wiki_url,
-        self.equipment = equipment,
+        self.name = name
+        self.incomplete = incomplete
+        self.members = members
+        self.tradeable = tradeable
+        self.tradeable_on_ge = tradeable_on_ge
+        self.stackable = stackable
+        self.stacked = stacked
+        self.noted = noted
+        self.noteable = noteable
+        self.linked_id_item = linked_id_item
+        self.linked_id_noted = linked_id_noted
+        self.linked_id_placeholder = linked_id_placeholder
+        self.placeholder = placeholder
+        self.equipable = equipable
+        self.equipable_by_player = equipable_by_player
+        self.equipable_weapon = equipable_weapon
+        self.cost = cost
+        self.lowalch = lowalch
+        self.highalch = highalch
+        self.weight = weight
+        self.buy_limit = buy_limit
+        self.quest_item = quest_item
+        self.release_date = release_date
+        self.duplicate = duplicate
+        self.examine = examine
+        self.icon = icon
+        self.wiki_name = wiki_name
+        self.wiki_url = wiki_url
+        self.equipment = equipment
         self.weapon = weapon
 
     def __str__(self):
         return f'Item(idd={self.idd},name={self.name}, incomplete={self.incomplete}, members={self.members}, tradeable={self.tradeable}, tradeable_on_ge={self.tradeable_on_ge}, stackable={self.stackable}, stacked={self.stacked}, noted={self.noted}, noteable={self.noteable}, linked_id_item={self.linked_id_item}, linked_id_noted={self.linked_id_noted}, linked_id_placeholder={self.linked_id_placeholder}, placeholder={self.placeholder}, equipable={self.equipable}, equipable_by_player={self.equipable_by_player}, equipable_weapon={self.equipable_weapon}, cost={self.cost}, lowalch={self.lowalch}, highalch={self.highalch}, weight={self.weight}, buy_limit={self.buy_limit}, quest_item={self.quest_item}, release_date={self.release_date}, duplicate={self.duplicate}, examine={self.examine}, icon={self.icon}, wiki_name={self.wiki_name}, wiki_url={self.wiki_url}, {str(self.equipment)}, {str(self.weapon)})'
+
+    def data(self):
+        return [
+            self.idd,
+            self.name,
+            self.incomplete,
+            self.members,
+            self.tradeable,
+            self.tradeable_on_ge,
+            self.stackable,
+            self.stacked,
+            self.noted,
+            self.noteable,
+            self.linked_id_item,
+            self.linked_id_noted,
+            self.linked_id_placeholder,
+            self.placeholder,
+            self.equipable,
+            self.equipable_by_player,
+            self.cost,
+            self.lowalch,
+            self.highalch,
+            self.weight,
+            self.buy_limit,
+            self.quest_item,
+            self.release_date,
+            self.duplicate,
+            self.examine,
+            self.icon,
+            self.wiki_name,
+            self.wiki_url,
+            self.equipment.attack_stab,
+            self.equipment.attack_slash,
+            self.equipment.attack_crush,
+            self.equipment.attack_magic,
+            self.equipment.attack_ranged,
+            self.equipment.defence_stab,
+            self.equipment.defence_slash,
+            self.equipment.defence_crush,
+            self.equipment.defence_magic,
+            self.equipment.defence_ranged,
+            self.equipment.melee_strength,
+            self.equipment.ranged_strength,
+            self.equipment.magic_damage,
+            self.weapon.attack_speed,
+            self.weapon.weapon_type
+        ]
 
 
 if __name__ == '__main__':
