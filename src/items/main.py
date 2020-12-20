@@ -153,21 +153,21 @@ class Item:
             self.icon,
             self.wiki_name,
             self.wiki_url,
-            self.equipment.attack_stab,
-            self.equipment.attack_slash,
-            self.equipment.attack_crush,
-            self.equipment.attack_magic,
-            self.equipment.attack_ranged,
-            self.equipment.defence_stab,
-            self.equipment.defence_slash,
-            self.equipment.defence_crush,
-            self.equipment.defence_magic,
-            self.equipment.defence_ranged,
-            self.equipment.melee_strength,
-            self.equipment.ranged_strength,
-            self.equipment.magic_damage,
-            self.weapon.attack_speed,
-            self.weapon.weapon_type
+            None if self.equipment is None else self.equipment.attack_stab,
+            None if self.equipment is None else self.equipment.attack_slash,
+            None if self.equipment is None else self.equipment.attack_crush,
+            None if self.equipment is None else self.equipment.attack_magic,
+            None if self.equipment is None else self.equipment.attack_ranged,
+            None if self.equipment is None else self.equipment.defence_stab,
+            None if self.equipment is None else self.equipment.defence_slash,
+            None if self.equipment is None else self.equipment.defence_crush,
+            None if self.equipment is None else self.equipment.defence_magic,
+            None if self.equipment is None else self.equipment.defence_ranged,
+            None if self.equipment is None else self.equipment.melee_strength,
+            None if self.equipment is None else self.equipment.ranged_strength,
+            None if self.equipment is None else self.equipment.magic_damage,
+            None if self.weapon is None else self.weapon.attack_speed,
+            None if self.weapon is None else self.weapon.weapon_type
         ]
 
 
@@ -238,4 +238,4 @@ if __name__ == '__main__':
                 weapon=wep,
             )
 
-            print(item)
+            print(item.data())
