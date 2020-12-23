@@ -19,7 +19,7 @@ create table items
 	cost int not null,
 	lowalch int,
 	highalch int,
-	weight float not null,
+	weight float,
 	buy_limit int,
 	quest_item bool not null,
 	release_date date,
