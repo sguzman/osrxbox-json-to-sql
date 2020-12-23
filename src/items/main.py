@@ -1,5 +1,8 @@
+import atexit
 import datetime
 import json
+import os
+import psycopg2
 
 from typing import Optional
 
@@ -166,6 +169,8 @@ class Item:
             None if self.equipment is None else self.equipment.melee_strength,
             None if self.equipment is None else self.equipment.ranged_strength,
             None if self.equipment is None else self.equipment.magic_damage,
+            None if self.equipment is None else self.equipment.prayer,
+            None if self.equipment is None else self.equipment.slot,
             None if self.weapon is None else self.weapon.attack_speed,
             None if self.weapon is None else self.weapon.weapon_type
         ]
@@ -238,4 +243,21 @@ if __name__ == '__main__':
                 weapon=wep,
             )
 
+            print(len(item.data()))
             print(item.data())
+
+
+            user = os.environ['USER']
+            passwd = os.environ['PASSWD']
+            host = os.environ['HOST']
+            port = os.environ['PORT']
+            db = os.environ['DB']
+
+            conn = psycopg2.connect(user=user, password=passwd, host=host, port=port, database=db)
+            atexit.register(lambda: conn.close())
+
+            sql_insert = 'INSERT INTO items (id, name, incomplete, members, tradeable, tradeable_on_ge, stackable, stacked, noted, noteable, linked_id_item, linked_id_noted, linked_id_placeholder, equipable, equipable_by_player, equipable_weapon, cost, lowalch, highalch, weight, buy_limit, quest_item, release_date, duplicate, examine, icon, wiki_name, wiki_url, attack_stab, attack_slash, attack_crush, attack_magic, attack_ranged, defence_stab, defence_slash, defence_crush, defence_magic, defence_ranged, melee_strength, ranged_strength, magic_damage, prayer, slot, attack_speed, weapon_type) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+            cursor = conn.cursor()
+            cursor.execute(sql_insert, item.data())
+            conn.commit()
+            cursor.close()
