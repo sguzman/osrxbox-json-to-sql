@@ -246,7 +246,6 @@ if __name__ == '__main__':
             print(len(item.data()))
             print(item.data())
 
-
             user = os.environ['USER']
             passwd = os.environ['PASSWD']
             host = os.environ['HOST']

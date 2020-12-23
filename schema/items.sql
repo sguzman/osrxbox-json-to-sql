@@ -24,7 +24,7 @@ create table items
 	quest_item bool not null,
 	release_date date,
 	duplicate bool not null,
-	examine text not null,
+	examine text,
 	icon bytea,
 	wiki_name text not null,
 	wiki_url text not null,
