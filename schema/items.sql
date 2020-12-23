@@ -26,7 +26,7 @@ create table items
 	duplicate bool not null,
 	examine text,
 	icon bytea,
-	wiki_name text not null,
+	wiki_name text,
 	wiki_url text not null,
 	attack_stab int,
     attack_slash int,
