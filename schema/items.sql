@@ -7,7 +7,7 @@ create table items
 	tradeable bool not null,
 	tradeable_on_ge bool not null,
 	stackable bool not null,
-	stacked bool,
+	stacked int,
 	noted bool not null,
 	noteable bool not null,
 	linked_id_item int,
