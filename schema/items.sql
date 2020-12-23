@@ -27,7 +27,7 @@ create table items
 	examine text,
 	icon bytea,
 	wiki_name text,
-	wiki_url text not null,
+	wiki_url text,
 	attack_stab int,
     attack_slash int,
     attack_crush int,
