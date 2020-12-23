@@ -10,7 +10,7 @@ create table items
 	stacked bool,
 	noted bool not null,
 	noteable bool not null,
-	linked_id_item int not null,
+	linked_id_item int,
 	linked_id_noted int,
 	linked_id_placeholder int,
 	equipable bool not null,
